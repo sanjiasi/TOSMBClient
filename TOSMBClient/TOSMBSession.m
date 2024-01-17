@@ -209,6 +209,9 @@
     }
     
     //Convert the IP Address and hostname values to their C equivalents
+    if (!self.hostName) {
+        self.hostName = @"AS";
+    }
     struct in_addr addr;
     inet_aton([self.ipAddress cStringUsingEncoding:NSASCIIStringEncoding], &addr);
     const char *hostName = [self.hostName cStringUsingEncoding:NSUTF8StringEncoding];
